@@ -1,0 +1,17 @@
+/logs
+target
+RUNNING_PID
+.sbtserver
+.sbtserver.lock
+
+.idea
+.idea_modules
+*.iml
+
+.classpath
+.project
+.settings
+.gradle/
+.DS_Store
+.sonar/
+.pyc
