@@ -36,7 +36,7 @@ def arrayManipulationTwo(n, queries):
     # print(a)
 
     # for c in range(1, len(a)):
-    #     a[c] = a[c] + a[c - 1]
+    #     a[c] = a[c] + a[c - 1]            # this line was increasing my code timing as it had to ref previous element
 
     max = sys.maxsize * -1
     summ = 0
