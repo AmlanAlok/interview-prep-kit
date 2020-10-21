@@ -8,6 +8,7 @@ class Solution:
         output = self.search_insert(a, target)
         print('output =', output)
 
+
     def search_insert(self, nums, target):
 
         if (len(nums) > 10 ** 4) or len(nums) < 1:
