@@ -6,20 +6,21 @@ import random
 import re
 import sys
 
+
+# next (c = array, x = current position, l = length of array c , p = jumps)
 def next(c, x, l, p):
+    print(c, x, l, p)
 
-    print(c,x,l,p)
-
-    if x == l-1:
+    if x == l - 1:
         return p
-    elif x < l-1:
-        if x+2 <= l-1 and c[x+2] == 0:
-            x+=2
-            p+=1
+    elif x < l - 1:
+        if x + 2 <= l - 1 and c[x + 2] == 0:
+            x += 2
+            p += 1
             return next(c, x, l, p)
-        elif c[x+1] == 0:
-            x+=1
-            p+=1
+        elif c[x + 1] == 0:
+            x += 1
+            p += 1
             return next(c, x, l, p)
         else:
             return -1
@@ -29,7 +30,6 @@ def next(c, x, l, p):
 
 # Complete the jumpingOnClouds function below.
 def jumpingOnClouds(c):
-
     return next(c, 0, len(c), 0)
 
 
