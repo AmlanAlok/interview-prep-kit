@@ -5,10 +5,10 @@ class Solution:
         a = [1, 3, 5, 6, 9, 10]
         target = 7
 
-        output = self.searchInsert(a, target)
+        output = self.search_insert(a, target)
         print('output =', output)
 
-    def searchInsert(self, nums, target):
+    def search_insert(self, nums, target):
 
         if (len(nums) > 10 ** 4) or len(nums) < 1:
             return -1
