@@ -1,5 +1,7 @@
 #   Array Knowledge Summary
 
+<br>
+
 ###     1.  When removing duplicates
 
 26  Remove Duplicates from Sorted Array -   https://leetcode.com/problems/remove-duplicates-from-sorted-array/
@@ -8,6 +10,8 @@
 Use 2 pointers:
     one to check all values (j)
     the other as index to manipulate the same array when a condition is met and then only increment it
+    
+<br>    
     
 ###     2.  When you need to find an int in an array with unique int values and is unsorted
 
@@ -27,6 +31,7 @@ Check if the value you are looking for is in the dictionary.
     
 So, there is trade off. Time vs Memory.
 
+<br> 
 
 ###     3. Binary search implementation to find the position of insertion
 
@@ -42,6 +47,8 @@ So, there is trade off. Time vs Memory.
             if nums[mid] > target:
                 r = mid -1
         return l        
+
+<br> 
 
 
     
