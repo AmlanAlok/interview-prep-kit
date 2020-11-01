@@ -1,3 +1,4 @@
+# Source = https://www.youtube.com/watch?v=BJ-VvGyQxho&list=TLPQMzExMDIwMjDrzhKNjJ8DVg&index=2
 print('Starting the 02-class-variables python file')
 
 
