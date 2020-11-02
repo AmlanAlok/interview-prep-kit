@@ -36,7 +36,12 @@ print('===================================================')
 print('')
 
 print('Changing increment rate for Student.rate_of_raise to 5%')
-Student.change_rate_of_raise(1.05)         # This method will automatically pass the class because it is a class method
+# Student.change_rate_of_raise(1.05)         # This method will automatically pass the class because it is a class method
+jon.change_rate_of_raise(1.05)                  # One can change the class variable via an instance, but it logically does not make sense
+
+# changing the class variable using the instance also does not include the variable in the dictionary values of the instance as the class variable changes for all
+print(jon.__dict__)
+print(arya.__dict__)
 
 print('')
 print('Printing the rate_of_raise for the 2 instances and the class to clearly show how changing the class variable impacts all other instances')
