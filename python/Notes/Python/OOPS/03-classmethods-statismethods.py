@@ -10,12 +10,14 @@ class Student:
         self.last_name = last_name
         self.pay = pay
 
+    '''regular methods pass the instance as an argument automatically'''
     def full_name(self):
         print('Full Name = {} {}'.format(self.first_name, self.last_name))
 
     def get_new_pay(self):
         print('New Pay = {}'.format(self.pay * self.rate_of_raise))
 
+    '''class methods pass the class as an argument automatically'''
     @classmethod
     def change_rate_of_raise(cls, new_rate):
         cls.rate_of_raise = new_rate
@@ -24,6 +26,13 @@ class Student:
     def from_string(cls, student_string):
         first_name, last_name, pay = student_string.split('-')
         return cls(first_name, last_name, pay)
+
+    '''static methods pass no argument automatically'''
+    @staticmethod
+    def is_school_day(day):
+        if day.weekday() == 5 or day.weekday() == 6:
+            return False
+        return True
 
 
 jon = Student('Jon', 'Snow', 100)
@@ -50,13 +59,13 @@ arya = Student('Arya', 'Stark', 200)
 
 '''Using class methods as alternative constructors - means you can provide multiple ways to create objects'''
 
-input_student_string = 'John-Doe-1000'
-
-john = Student.from_string(input_student_string)
-
-print(john.first_name)
-print(john.last_name)
-print(john.pay)
+# input_student_string = 'John-Doe-1000'
+#
+# john = Student.from_string(input_student_string)
+#
+# print(john.first_name)
+# print(john.last_name)
+# print(john.pay)
 
 # print('')
 # print('Printing the rate_of_raise for the 2 instances and the class to clearly show how changing the class variable impacts all other instances')
@@ -64,48 +73,12 @@ print(john.pay)
 # print('increment rate for arya = arya.rate_of_raise =', arya.rate_of_raise)
 # print('increment rate for class Student = Student.rate_of_raise =', Student.rate_of_raise)
 
-# print('When the class variable is changed for only a specific instance, then that variable gets added as a variable associated with the instance directly')
-# print('Hence, you can see that for jon now there are 4 variables and arya still has 3 variables')
-# print(jon.__dict__)
-# print(arya.__dict__)
-#
-# print('')
-# print('Printing the rate_of_raise for the 2 instances and the class to clearly show how changing the class variable impacts all other instances')
-# print('increment rate for jon = jon.rate_of_raise = ', jon.rate_of_raise)
-# print('increment rate for arya = arya.rate_of_raise =', arya.rate_of_raise)
-# print('increment rate for class Student = Student.rate_of_raise =', Student.rate_of_raise)
-#
-# print('')
-# print('===================================================')
-# print('')
-# print('Changing increment rate for Student.rate_of_raise to 1.04')
-# Student.rate_of_raise = 1.04
-#
-#
-# print('')
-# print('===================================================')
-# print('')
-# print('Changing increment rate for jon to 1.1')
-# jon.rate_of_raise = 1.10
-# print('')
-#
-# print('When the class varibale is changed for only a specific instance, then that variable gets added as a variable associated with the instance directly')
-# print('Hence, you can see that for jon now there are 4 variables and arya still has 3 variables')
-# print(jon.__dict__)
-# print(arya.__dict__)
-#
-# print('')
-# print('Printing the rate_of_raise for the 2 instances and the class to clearly show how the same class variable now has different value for only once instance = jon')
-# print('increment rate for jon = jon.rate_of_raise = ', jon.rate_of_raise)
-# print('increment rate for arya = arya.rate_of_raise =', arya.rate_of_raise)
-# print('increment rate for class Student = Student.rate_of_raise =', Student.rate_of_raise)
-#
-# print('')
-# print('===================================================')
-# print('')
-# print('making jon.rate_of_raise = 1.04 again')
-# jon.rate_of_raise = 1.04
-#
-# print('here you will notice that even though the value of jon.rate_of_raise has been changed back to 1.04, the instance will still have the variable in its dictionary')
-# print(jon.__dict__)
-# print(arya.__dict__)
+'''Using static methods from a class'''
+
+import datetime
+
+sunday_date = datetime.date(2020, 11, 1)                                        # this date is of a Sunday
+print('is sunday_date a weekday? -', Student.is_school_day(sunday_date))       # Hence, it is not a weekday
+
+monday_date = datetime.date(2020, 11, 2)                                        # this date is of a Monday
+print('is monday_date a weekday? -', Student.is_school_day(monday_date))        # Hence, it is not a weekday
