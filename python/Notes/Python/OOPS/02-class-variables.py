@@ -44,11 +44,6 @@ print('Changing increment rate for Student.rate_of_raise to 2')
 Student.rate_of_raise = 2
 print('')
 
-print('When the class variable is changed for only a specific instance, then that variable gets added as a variable associated with the instance directly')
-print('Hence, you can see that for jon now there are 4 variables and arya still has 3 variables')
-print(jon.__dict__)
-print(arya.__dict__)
-
 print('')
 print('Printing the rate_of_raise for the 2 instances and the class to clearly show how changing the class variable impacts all other instances')
 print('increment rate for jon = jon.rate_of_raise = ', jon.rate_of_raise)
@@ -69,7 +64,7 @@ print('Changing increment rate for jon to 1.1')
 jon.rate_of_raise = 1.10
 print('')
 
-print('When the class varibale is changed for only a specific instance, then that variable gets added as a variable associated with the instance directly')
+print('When the class variable is changed for only a specific instance, then that variable gets added as a variable associated with the instance directly')
 print('Hence, you can see that for jon now there are 4 variables and arya still has 3 variables')
 print(jon.__dict__)
 print(arya.__dict__)
