@@ -59,6 +59,8 @@ arya = Developer('Arya', 'Stark', 200, 'Java')
 print(jon.__dict__)
 print(arya.__dict__)
 
+'''------------- Learning 2: Using Manager subclass to maintain code -----------------'''
+
 mgr_1 = Manager('Bran', 'Stark', 300, [jon])
 
 # print(mgr_1.__dict__)
@@ -72,7 +74,7 @@ mgr_1.remove_emp(jon)           # removing employee = jon
 
 mgr_1.print_emps()              # displaying employees after removing employee = jon
 
-# '''------------- Learning 1: Referencing class variables from parent class and subclass -----------------'''
+'''------------- Learning 1: Referencing class variables from parent class and subclass -----------------'''
 # print(jon.pay)
 # '''This func will refer the class variable value from the subclass if that var is available or else, it will refer the value of the variable from the parent class.
 # This way if you want a certain group to have a different value for a class var, you can do it.'''
@@ -119,3 +121,23 @@ mgr_1.print_emps()              # displaying employees after removing employee =
 
 # '''This help command helps you see all the information regarding the class you are referring to'''
 # print(help(Student))
+
+
+'''Use of isinstance function'''
+print('')
+print('Use of isinstance function')
+print('is mgr_1 instance of Manager class?', isinstance(mgr_1, Manager))
+print('is mgr_1 instance of Student class?', isinstance(mgr_1, Student))
+print('is mgr_1 instance of Developer class?', isinstance(mgr_1, Developer))
+
+print('is jon instance of Developer class?', isinstance(jon, Developer))
+print('is jon instance of Student class?', isinstance(jon, Student))
+print('is jon instance of Manager class?', isinstance(jon, Manager))
+
+'''Use of issubclass function'''
+print('')
+print('Use of issubclass function')
+print('is Manager subclass of Student class?', issubclass(Manager, Student))
+print('is Developer subclass of Student class?', issubclass(Developer, Student))
+print('is Manager subclass of Developer class?', issubclass(Manager, Developer))
+print('is Developer subclass of Manager class?', issubclass(Developer, Manager))
