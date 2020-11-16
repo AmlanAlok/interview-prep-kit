@@ -34,12 +34,12 @@ arya = Developer('Arya', 'Stark', 200, 'Java')
 print(jon.__dict__)
 print(arya.__dict__)
 
-'''------------- Learning 1: Referencing class variables from parent class and subclass -----------------'''
-print(jon.pay)
-'''This func will refer the class variable value from the subclass if that var is available or else, it will refer the value of the variable from the parent class.
-This way if you want a certain group to have a different value for a class var, you can do it.'''
-jon.get_new_pay()
-print(jon.pay)
+# '''------------- Learning 1: Referencing class variables from parent class and subclass -----------------'''
+# print(jon.pay)
+# '''This func will refer the class variable value from the subclass if that var is available or else, it will refer the value of the variable from the parent class.
+# This way if you want a certain group to have a different value for a class var, you can do it.'''
+# jon.get_new_pay()
+# print(jon.pay)
 
 # '''This help command helps you see all the information regarding the class you are referring to'''
 # print(help(Developer))
