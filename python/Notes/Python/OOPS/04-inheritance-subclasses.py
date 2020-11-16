@@ -28,11 +28,49 @@ class Developer(Student):
         self.prog_lang = prog_lang
 
 
+class Manager(Student):
+
+    def __init__(self, first_name, last_name, pay, employees=None):
+        super().__init__(first_name, last_name, pay)
+
+        if employees is None:
+            self.employees = []
+        else:
+            self.employees = employees
+
+    def add_emp(self, emp):
+        if emp not in self.employees:
+            self.employees.append(emp)
+
+    def remove_emp(self, emp):
+        if emp in self.employees:
+            self.employees.remove(emp)
+
+    def print_emps(self):
+        print('--------------------')
+        for emp in self.employees:
+            emp.full_name()
+        print('--------------------')
+
+
 jon = Developer('Jon', 'Snow', 100, 'Python')
 arya = Developer('Arya', 'Stark', 200, 'Java')
 
 print(jon.__dict__)
 print(arya.__dict__)
+
+mgr_1 = Manager('Bran', 'Stark', 300, [jon])
+
+# print(mgr_1.__dict__)
+mgr_1.print_emps()              # showing employees added via constructor
+
+mgr_1.add_emp(arya)             # adding new employee
+
+mgr_1.print_emps()              # displaying both the employees
+
+mgr_1.remove_emp(jon)           # removing employee = jon
+
+mgr_1.print_emps()              # displaying employees after removing employee = jon
 
 # '''------------- Learning 1: Referencing class variables from parent class and subclass -----------------'''
 # print(jon.pay)
