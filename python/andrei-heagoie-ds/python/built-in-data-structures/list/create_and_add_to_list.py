@@ -22,7 +22,10 @@ class MyTestCase(unittest.TestCase):
         print('------------------------------------------')
         print('Creating list with different data types')
         list_a = [1, 1.2, 'Amlan', True]
+
         print('Created new list = ', list_a)
+        self.assertEqual([1, 1.2, 'Amlan', True], list_a)
+
         print('Length of the list = ', len(list_a))
         self.assertEqual(4, len(list_a))
 
@@ -36,9 +39,13 @@ class MyTestCase(unittest.TestCase):
         list_a = [1, 1.2, 'Amlan', True]
         print('Adding a list with 2 strings as element to list_a using append function')
         list_a.append(['Naruto', 'Uzumaki'])
+
         print('List after adding new element = ', list_a)
+        self.assertEqual([1, 1.2, 'Amlan', True, ['Naruto', 'Uzumaki']], list_a)
+
         print('Length of the list = ', len(list_a))
         self.assertEqual(5, len(list_a))
+
 
     '''extend() function in list'''
 
@@ -50,7 +57,10 @@ class MyTestCase(unittest.TestCase):
         list_a = [1, 1.2, 'Amlan', True]
         print('Adding a list with 2 strings as element to list_a using extend function')
         list_a.extend(['Naruto', 'Uzumaki'])
+
         print('List after adding new element = ', list_a)
+        self.assertEqual([1, 1.2, 'Amlan', True, 'Naruto', 'Uzumaki'], list_a)
+
         print('Length of the list = ', len(list_a))
         self.assertEqual(6, len(list_a))
 
@@ -65,7 +75,9 @@ class MyTestCase(unittest.TestCase):
         print('Adding a string as element to list_a using insert function')
         i = 1
         list_a.insert(i, 'Naruto')
+
         print('List after adding new element = ', list_a)
+        self.assertEqual([1, 'Naruto', 1.2, 'Amlan', True], list_a)
         print('Length of the list = ', len(list_a))
         self.assertEqual(5, len(list_a))
         self.assertEqual('Naruto', list_a[1])
@@ -80,9 +92,13 @@ class MyTestCase(unittest.TestCase):
         list_a = [1, 1.2, 'Amlan', True]
         i = 1
         del list_a[i]
+
         print('List after deleting element = ', list_a)
+        self.assertEqual([1, 'Amlan', True], list_a)
+
         print('Length of the list = ', len(list_a))
         self.assertEqual(3, len(list_a))
+
         self.assertNotEqual(1.2, list_a[1])
 
     '''using remove() function in list on element that has single occurrence'''
@@ -94,9 +110,13 @@ class MyTestCase(unittest.TestCase):
         print('Creating list with different data types')
         list_a = [1, 1.2, 'Amlan', True]
         list_a.remove(1.2)
+
         print('List after deleting element = ', list_a)
+        self.assertEqual([1, 'Amlan', True], list_a)
+
         print('Length of the list = ', len(list_a))
         self.assertEqual(3, len(list_a))
+
         self.assertNotEqual(1.2, list_a[1])
 
     '''using remove() function in list on element that has multiple occurrence will only remove the first occurrence of it.
@@ -132,9 +152,13 @@ class MyTestCase(unittest.TestCase):
         i = 1
         deleted_element = list_a.pop(i)
         print('Deleted element = ', deleted_element)
+
         print('List after deleting element = ', list_a)
+        self.assertEqual([1, 'Amlan', True], list_a)
+
         print('Length of the list = ', len(list_a))
         self.assertEqual(3, len(list_a))
+
         self.assertNotEqual(deleted_element, list_a[i])
 
     '''using clear function to empty a list'''
@@ -146,9 +170,14 @@ class MyTestCase(unittest.TestCase):
         print('Creating list with different data types')
         list_a = [1, 1.2, 'Amlan', True]
         list_a.clear()
+
         print('List after using clear function = ', list_a)
+        self.assertEqual([], list_a)
+
         print('Length of the list = ', len(list_a))
         self.assertEqual(0, len(list_a))
+
+    '''ways to access the list'''
 
     def test_accessing_elements(self):
         print('------------------------------------------')
@@ -161,12 +190,51 @@ class MyTestCase(unittest.TestCase):
         for element in list_a:
             print(element)
 
+        print('Displaying all elements = ', list_a)
+        self.assertEqual([1, 1.2, 'Amlan', True], list_a)
 
+        print('Accessing element at a given index = ', list_a[2])
+        self.assertEqual('Amlan', list_a[2])
 
+        print('Accessing elements from index 0 to 1 = ', list_a[0:2])
+        self.assertEqual([1, 1.2], list_a[0:2])         # here 0 is inclusive and 2 is exclusive
 
+        print('Access elements in reverse order = ', list_a[::-1])
+        self.assertEqual([True, 'Amlan', 1.2, 1], list_a[::-1])
 
+    '''some other functions to keep in mind'''
 
+    def test_some_other_functions(self):
+        print('------------------------------------------')
+        print('some other functions of lists')
+        print('------------------------------------------')
+        print('Creating list of int')
+        list = [1, 2, 3, 10, 30, 10]
 
+        print('Created list is = ', list)
+        self.assertEqual([1, 2, 3, 10, 30, 10], list)
+
+        print('Length of created list = ', len(list))
+        self.assertEqual(6, len(list))
+
+        print('Find index of element 10\'s first occurrence = ', list.index(10))
+        self.assertEqual(3, list.index(10))
+
+        print('Find the number of times element 10 has occurred = ', list.count(10))
+        self.assertEqual(2, list.count(10))
+
+        print('display list in sorted way but without changing the original list = ', sorted(list))
+        self.assertEqual([1, 2, 3, 10, 10, 30], sorted(list))
+
+        print('sorting the original list using .sort(reverse=False) ')
+        list.sort(reverse=False)
+        print('Displaying sorted list = ', list)
+        self.assertEqual([1, 2, 3, 10, 10, 30], list)
+
+        print('sorting the original list using .sort(reverse=True) ')
+        list.sort(reverse=True)
+        print('Displaying reverse sorted list = ', list)
+        self.assertEqual([30, 10, 10, 3, 2, 1], list)
 
 
 if __name__ == '__main__':
