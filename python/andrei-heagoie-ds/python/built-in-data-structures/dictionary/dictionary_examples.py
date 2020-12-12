@@ -48,12 +48,20 @@ class MyTestCase(unittest.TestCase):
         dic = {1: 'Amlan', 2: 'Alok', 3: 'Jon'}
         print('Initial dictionary = ', dic)
 
+        """ 
+        pop func allows you to delete elements based on the key 
+        it returns the value of that key
+        """
         deleted_element = dic.pop(3)
         print('deleted_element = ', deleted_element)
         self.assertEqual('Jon', deleted_element)
 
         print('dic after deletion = ', dic)
         self.assertEqual({1: 'Amlan', 2: 'Alok'}, dic)
+
+        """
+        popitem removes the last element of the dictionary
+        """
 
         popped_item = dic.popitem()
         print('popped_item = ', popped_item)
@@ -64,6 +72,35 @@ class MyTestCase(unittest.TestCase):
         print('clearing the dic')
         dic.clear()
         self.assertEqual({}, dic)
+
+    """ Accessing values from the dictionary using keys """
+
+    def test_6(self):
+        dic = {1: 'Amlan', 2: 'Alok', 3: 'Jon'}
+        print('Initial dictionary = ', dic)
+
+        """ accessing values from dict using key value  """
+
+        print('Value for key = 1 is', dic[1])
+        self.assertEqual('Amlan', dic[1])
+        print('Value for key = 2 is', dic.get(2))
+        self.assertEqual('Alok', dic.get(2))
+
+    """ Other func for dictionaries """
+
+    def test_7(self):
+        dic = {1: 'Amlan', 2: 'Alok', 3: 'Jon'}
+        print('Initial dictionary = ', dic)
+
+        # this returns a list containing all the keys
+        print('Display all keys = ', dic.keys())
+        # self.assertEqual(dict_keys([1, 2, 3]), dic.keys())
+
+        # this returns a list containing all the values
+        print('Display all values = ', dic.values())
+
+        # this returns a list of tuples
+        print('Display all key-value pairs = ', dic.items())
 
 
 if __name__ == '__main__':
